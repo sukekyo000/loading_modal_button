@@ -1,4 +1,3 @@
-
 enum ButtonType {
   elevated,
   outlined,
