@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   loading_modal_button:
-    path: ../../
+    path: ../
 
   cupertino_icons: ^1.0.2
 
