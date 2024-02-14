@@ -8,6 +8,7 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
     super.key,
     required this.onPressed,
     this.afterAsync,
+    this.errorAsync,
     required this.buttonChild,
     this.buttonType = ButtonType.elevated,
     this.buttonStyle,
@@ -15,7 +16,7 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
   });
   final Future<void> Function() onPressed;
   final void Function()? afterAsync;
-
+  final void Function(Exception error)? errorAsync;
   final Widget buttonChild;
   final ButtonType buttonType;
   final ButtonStyle? buttonStyle;
@@ -27,7 +28,7 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
     switch (buttonType) {
       case ButtonType.elevated:
         return ElevatedButton(
-          style: buttonStyle,
+          style: buttonStyle ?? Theme.of(context).elevatedButtonTheme.style,
           child: buttonChild,
           onPressed: () async {
             await showLoadingFlow(context);
@@ -35,7 +36,7 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
         );
       case ButtonType.outlined:
         return OutlinedButton(
-          style: buttonStyle,
+          style: buttonStyle ?? Theme.of(context).outlinedButtonTheme.style,
           child: buttonChild,
           onPressed: () async {
             await showLoadingFlow(context);
@@ -43,7 +44,7 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
         );
       case ButtonType.text:
         return TextButton(
-          style: buttonStyle,
+          style: buttonStyle ?? Theme.of(context).textButtonTheme.style,
           child: buttonChild,
           onPressed: () async {
             await showLoadingFlow(context);
@@ -57,6 +58,7 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
       context,
       function: onPressed,
       afterAsync: afterAsync,
+      errorAsync: errorAsync,
       customLoadingWidget: customLoadingWidget,
     );
   }

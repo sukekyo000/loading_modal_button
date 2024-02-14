@@ -8,12 +8,14 @@ class IconButtonWithModal extends StatelessWidget with Loading {
     super.key,
     required this.onPressed,
     this.afterAsync,
+    this.errorAsync,
     required this.iconChild,
     this.style = const IconButtonWithModalStyle(),
     required this.customLoadingWidget,
   });
   final Future<void> Function() onPressed;
   final void Function()? afterAsync;
+  final void Function(Exception error)? errorAsync;
   final Widget iconChild;
   final IconButtonWithModalStyle style;
   final Widget? customLoadingWidget;
@@ -27,6 +29,7 @@ class IconButtonWithModal extends StatelessWidget with Loading {
           context,
           function: onPressed,
           afterAsync: afterAsync,
+          errorAsync: errorAsync,
           customLoadingWidget: customLoadingWidget,
         );
       },

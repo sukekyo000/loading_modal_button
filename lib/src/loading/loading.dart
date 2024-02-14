@@ -7,6 +7,7 @@ mixin Loading {
     BuildContext context, {
     required Future<void> Function() function,
     void Function()? afterAsync,
+    void Function(Exception error)? errorAsync,
     required Widget? customLoadingWidget,
   }) async {
     // show loading modal
@@ -15,17 +16,28 @@ mixin Loading {
       customLoadingWidget: customLoadingWidget,
     );
 
-    // await async function
-    await function();
+    try {
+      // await async function
+      await function();
 
-    // pop loading modal when async function is done
-    if (context.mounted) {
-      Navigator.pop(context);
+      // pop loading modal
+      if (context.mounted) {
+        Navigator.pop(context);
+      }
+
+      // if there is afterAsync function,
+      // call it after async function is done
+      if (afterAsync != null) afterAsync();
+    } on Exception catch (e) {
+      // pop loading modal
+      if (context.mounted) {
+        Navigator.pop(context);
+      }
+
+      // if there is errorAsync function,
+      // call it when error occurred
+      errorAsync?.call(e);
     }
-
-    // if there is afterAsync function,
-    // call it after async function is done
-    if (afterAsync != null) afterAsync();
   }
 
   void _showLoading(

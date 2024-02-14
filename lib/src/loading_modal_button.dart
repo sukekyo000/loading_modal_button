@@ -12,6 +12,7 @@ class LoadingModalButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     this.afterAsync,
+    this.errorAsync,
     this.buttonChild = const Text('Default Value'),
     this.buttonType = ButtonType.elevated,
     this.buttonStyle,
@@ -27,7 +28,11 @@ class LoadingModalButton extends StatelessWidget {
 
   /// after onPressed async function is done,
   /// afterAsync function will be called
+  /// if error occurred, afterAsync function will not be called
   final void Function()? afterAsync;
+
+  /// if error occurred, errorAsync function will be called
+  final void Function(Exception error)? errorAsync;
 
   /// button child for [ElevatedButton], [OutlinedButton], [TextButton]
   final Widget buttonChild;
@@ -65,6 +70,7 @@ class LoadingModalButton extends StatelessWidget {
       return CustomLoadingButtonWithModal(
         onPressed: onPressed,
         afterAsync: afterAsync,
+        errorAsync: errorAsync,
         customWidget: customWidget!,
         customLoadingWidget: customLoadingWidget,
       );
@@ -83,6 +89,7 @@ class LoadingModalButton extends StatelessWidget {
     return DefaultButtonWithModal(
       onPressed: onPressed,
       afterAsync: afterAsync,
+      errorAsync: errorAsync,
       buttonChild: buttonChild,
       buttonStyle: buttonStyle,
       buttonType: buttonType,

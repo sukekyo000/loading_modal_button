@@ -7,11 +7,15 @@ class CustomLoadingButtonWithModal extends StatelessWidget with Loading {
     super.key,
     required this.onPressed,
     this.afterAsync,
+    this.errorAsync,
     this.customWidget,
     required this.customLoadingWidget,
   });
   final Future<void> Function() onPressed;
+
   final void Function()? afterAsync;
+
+  final void Function(Exception error)? errorAsync;
 
   final Widget? customWidget;
 
@@ -26,6 +30,7 @@ class CustomLoadingButtonWithModal extends StatelessWidget with Loading {
           context,
           function: onPressed,
           afterAsync: afterAsync,
+          errorAsync: errorAsync,
           customLoadingWidget: customLoadingWidget,
         );
 

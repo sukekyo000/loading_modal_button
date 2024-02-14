@@ -1,3 +1,7 @@
+## 1.1.0
+- add error function
+- default buttons style is Theme style
+
 ## 1.0.1
 - Fix documentaion
 
