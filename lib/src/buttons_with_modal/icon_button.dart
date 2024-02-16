@@ -13,6 +13,7 @@ class IconButtonWithModal extends StatelessWidget with Loading {
     this.style = const IconButtonWithModalStyle(),
     required this.customLoadingWidget,
     this.loadingBackgroundColor,
+    this.validation,
   });
   final Future<void> Function() onPressed;
   final void Function()? afterAsync;
@@ -21,6 +22,7 @@ class IconButtonWithModal extends StatelessWidget with Loading {
   final IconButtonWithModalStyle style;
   final Widget? customLoadingWidget;
   final Color? loadingBackgroundColor;
+  final bool? validation;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,8 @@ class IconButtonWithModal extends StatelessWidget with Loading {
           afterAsync: afterAsync,
           errorAsync: errorAsync,
           customLoadingWidget: customLoadingWidget,
-          loadingBackgroundColor: loadingBackgroundColor
+          loadingBackgroundColor: loadingBackgroundColor,
+          validation: validation,
         );
       },
       iconSize: style.iconSize,

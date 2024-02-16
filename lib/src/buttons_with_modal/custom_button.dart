@@ -11,6 +11,7 @@ class CustomLoadingButtonWithModal extends StatelessWidget with Loading {
     this.customWidget,
     required this.customLoadingWidget,
     this.loadingBackgroundColor,
+    this.validation,
   });
   final Future<void> Function() onPressed;
 
@@ -24,6 +25,8 @@ class CustomLoadingButtonWithModal extends StatelessWidget with Loading {
 
   final Color? loadingBackgroundColor;
 
+  final bool? validation;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -36,6 +39,7 @@ class CustomLoadingButtonWithModal extends StatelessWidget with Loading {
           errorAsync: errorAsync,
           customLoadingWidget: customLoadingWidget,
           loadingBackgroundColor: loadingBackgroundColor,
+          validation: validation,
         );
 
         if (afterAsync != null) afterAsync!();

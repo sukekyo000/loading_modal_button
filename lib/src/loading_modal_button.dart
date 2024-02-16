@@ -21,6 +21,7 @@ class LoadingModalButton extends StatelessWidget {
     this.customWidget,
     this.customLoadingWidget,
     this.loadingBackgroundColor,
+    this.validation = null,
   });
 
   /// after button tapped, loading modal will show
@@ -68,6 +69,9 @@ class LoadingModalButton extends StatelessWidget {
   /// you can change loading modal background color
   final Color? loadingBackgroundColor;
 
+  /// if validation is false, will not call [onPressed], [afterAsync], [errorAsync]
+  final bool? validation;
+
   @override
   Widget build(BuildContext context) {
     if (customWidget != null) {
@@ -78,6 +82,7 @@ class LoadingModalButton extends StatelessWidget {
         customWidget: customWidget!,
         customLoadingWidget: customLoadingWidget,
         loadingBackgroundColor: loadingBackgroundColor,
+        validation: validation,
       );
     }
 
@@ -89,6 +94,7 @@ class LoadingModalButton extends StatelessWidget {
         style: iconButtonWithModalStyle,
         customLoadingWidget: customLoadingWidget,
         loadingBackgroundColor: loadingBackgroundColor,
+        validation: validation,
       );
     }
 
@@ -101,6 +107,7 @@ class LoadingModalButton extends StatelessWidget {
       buttonType: buttonType,
       customLoadingWidget: customLoadingWidget,
       loadingBackgroundColor: loadingBackgroundColor,
+      validation: validation,
     );
   }
 }

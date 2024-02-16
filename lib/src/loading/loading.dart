@@ -10,6 +10,7 @@ mixin Loading {
     void Function(Exception error)? errorAsync,
     required Widget? customLoadingWidget,
     required Color? loadingBackgroundColor,
+    required bool? validation,
   }) async {
     // show loading modal
     _showLoading(
@@ -17,6 +18,13 @@ mixin Loading {
       customLoadingWidget: customLoadingWidget,
       loadingBackgroundColor: loadingBackgroundColor,
     );
+
+    // if validation is false, will not call async function
+    // and also afterAsync, errorAsync
+    if (validation == false) {
+      Navigator.pop(context);
+      return;
+    }
 
     try {
       // await async function

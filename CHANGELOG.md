@@ -1,3 +1,6 @@
+## 1.1.2
+- add validation
+
 ## 1.1.1
 - add custom loading background color
 
