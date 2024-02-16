@@ -1,3 +1,6 @@
+## 1.1.1
+- add custom loading background color
+
 ## 1.1.0
 - add error function
 - default buttons style is Theme style

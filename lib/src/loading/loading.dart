@@ -9,11 +9,13 @@ mixin Loading {
     void Function()? afterAsync,
     void Function(Exception error)? errorAsync,
     required Widget? customLoadingWidget,
+    required Color? loadingBackgroundColor,
   }) async {
     // show loading modal
     _showLoading(
       context,
       customLoadingWidget: customLoadingWidget,
+      loadingBackgroundColor: loadingBackgroundColor,
     );
 
     try {
@@ -43,13 +45,15 @@ mixin Loading {
   void _showLoading(
     BuildContext context, {
     Widget? customLoadingWidget,
+    Color? loadingBackgroundColor,
   }) {
     final indicator = customLoadingWidget ?? const DefaultIndicator();
 
     showGeneralDialog(
       context: context,
       barrierDismissible: false,
-      barrierColor: Theme.of(context).colorScheme.primary.withOpacity(0.25),
+      barrierColor: loadingBackgroundColor ??
+          Theme.of(context).colorScheme.primary.withOpacity(0.25),
       transitionDuration: const Duration(milliseconds: 400),
       pageBuilder: (_, __, ___) {
         return Center(

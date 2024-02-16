@@ -13,6 +13,7 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
     this.buttonType = ButtonType.elevated,
     this.buttonStyle,
     required this.customLoadingWidget,
+    this.loadingBackgroundColor,
   });
   final Future<void> Function() onPressed;
   final void Function()? afterAsync;
@@ -20,8 +21,8 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
   final Widget buttonChild;
   final ButtonType buttonType;
   final ButtonStyle? buttonStyle;
-
   final Widget? customLoadingWidget;
+  final Color? loadingBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,7 @@ class DefaultButtonWithModal extends StatelessWidget with Loading {
       afterAsync: afterAsync,
       errorAsync: errorAsync,
       customLoadingWidget: customLoadingWidget,
+      loadingBackgroundColor: loadingBackgroundColor,
     );
   }
 }

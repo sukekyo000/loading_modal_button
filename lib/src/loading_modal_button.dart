@@ -20,6 +20,7 @@ class LoadingModalButton extends StatelessWidget {
     this.iconButtonWithModalStyle = const IconButtonWithModalStyle(),
     this.customWidget,
     this.customLoadingWidget,
+    this.loadingBackgroundColor,
   });
 
   /// after button tapped, loading modal will show
@@ -64,6 +65,9 @@ class LoadingModalButton extends StatelessWidget {
   /// default is [DefaultIndicator]
   final Widget? customLoadingWidget;
 
+  /// you can change loading modal background color
+  final Color? loadingBackgroundColor;
+
   @override
   Widget build(BuildContext context) {
     if (customWidget != null) {
@@ -73,6 +77,7 @@ class LoadingModalButton extends StatelessWidget {
         errorAsync: errorAsync,
         customWidget: customWidget!,
         customLoadingWidget: customLoadingWidget,
+        loadingBackgroundColor: loadingBackgroundColor,
       );
     }
 
@@ -83,6 +88,7 @@ class LoadingModalButton extends StatelessWidget {
         iconChild: iconChild!,
         style: iconButtonWithModalStyle,
         customLoadingWidget: customLoadingWidget,
+        loadingBackgroundColor: loadingBackgroundColor,
       );
     }
 
@@ -94,6 +100,7 @@ class LoadingModalButton extends StatelessWidget {
       buttonStyle: buttonStyle,
       buttonType: buttonType,
       customLoadingWidget: customLoadingWidget,
+      loadingBackgroundColor: loadingBackgroundColor,
     );
   }
 }
