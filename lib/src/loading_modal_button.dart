@@ -21,7 +21,7 @@ class LoadingModalButton extends StatelessWidget {
     this.customWidget,
     this.customLoadingWidget,
     this.loadingBackgroundColor,
-    this.validation = null,
+    this.validation,
   });
 
   /// after button tapped, loading modal will show
@@ -70,7 +70,7 @@ class LoadingModalButton extends StatelessWidget {
   final Color? loadingBackgroundColor;
 
   /// if validation is false, will not call [onPressed], [afterAsync], [errorAsync]
-  final bool? validation;
+  final bool Function()? validation;
 
   @override
   Widget build(BuildContext context) {

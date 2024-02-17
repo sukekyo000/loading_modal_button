@@ -22,7 +22,7 @@ class IconButtonWithModal extends StatelessWidget with Loading {
   final IconButtonWithModalStyle style;
   final Widget? customLoadingWidget;
   final Color? loadingBackgroundColor;
-  final bool? validation;
+  final bool Function()? validation;
 
   @override
   Widget build(BuildContext context) {

@@ -25,7 +25,7 @@ class CustomLoadingButtonWithModal extends StatelessWidget with Loading {
 
   final Color? loadingBackgroundColor;
 
-  final bool? validation;
+  final bool Function()? validation;
 
   @override
   Widget build(BuildContext context) {
