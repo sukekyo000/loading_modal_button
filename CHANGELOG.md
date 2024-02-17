@@ -1,5 +1,8 @@
+## 1.1.4
+- fix validation
+
 ## 1.1.3
-- add validation
+- fix validation
 
 ## 1.1.2
 - add validation

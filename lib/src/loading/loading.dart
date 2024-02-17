@@ -22,7 +22,8 @@ mixin Loading {
     // if validation is false, will not call async function
     // and also afterAsync, errorAsync
     final validationStatus = validation?.call() ?? true;
-    if(!validationStatus){
+    if (!validationStatus) {
+      Navigator.pop(context);
       return;
     }
 
