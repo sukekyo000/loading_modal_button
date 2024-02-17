@@ -5,8 +5,6 @@ class DefaultIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CircularProgressIndicator(
-      strokeWidth: 3,
-    );
+    return const CircularProgressIndicator();
   }
 }

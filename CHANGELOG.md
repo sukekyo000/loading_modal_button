@@ -1,3 +1,6 @@
+## 1.1.5
+- change default progress indicator
+
 ## 1.1.4
 - fix validation
 
